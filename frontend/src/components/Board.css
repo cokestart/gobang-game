@@ -1,0 +1,132 @@
+.board-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.board {
+  display: inline-block;
+  background: linear-gradient(to bottom, #d4a574 0%, #c8955f 100%);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  min-width: min-content;
+}
+
+.board-row {
+  display: flex;
+}
+
+.board-cell {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border: 1px solid #8b6f47;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  background: linear-gradient(135deg, #d4a574 0%, #c8955f 100%);
+  transition: background-color 0.2s;
+}
+
+.board-cell:hover:not(.occupied) {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.piece {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  animation: placepiece 0.3s ease-out;
+}
+
+.piece.black {
+  background: radial-gradient(circle at 30% 30%, #4a4a4a, #000000);
+  border: 2px solid #1a1a1a;
+}
+
+.piece.white {
+  background: radial-gradient(circle at 30% 30%, #ffffff, #e0e0e0);
+  border: 2px solid #d0d0d0;
+}
+
+@keyframes placepiece {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .board-container {
+    padding: 5px;
+  }
+  
+  .board {
+    padding: 10px;
+  }
+  
+  .board-cell {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+  }
+  
+  .piece {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .board-cell {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+  }
+  
+  .piece {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .board {
+    padding: 8px;
+  }
+}
+
+/* 超小屏幕 */
+@media (max-width: 360px) {
+  .board-cell {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+  }
+  
+  .piece {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .board {
+    padding: 5px;
+  }
+}

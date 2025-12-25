@@ -1,0 +1,24 @@
+{
+  "name": "gobang-game",
+  "version": "1.0.0",
+  "description": "在线五子棋游戏",
+  "scripts": {
+    "start": "node proxy-server.js",
+    "start:backend": "cd backend && npm start",
+    "build:frontend": "cd frontend && npm run build",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "dev": "concurrently \"npm run start:backend\" \"npm run start\"",
+    "render:install": "npm install",
+    "render:build": "cd frontend && npm run build",
+    "render:start": "node render-server.js",
+    "render:deploy": "npm run render:install && npm run render:build && npm run render:start"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "http-proxy": "^1.18.1",
+    "http-proxy-middleware": "^3.0.5",
+    "concurrently": "^8.2.2",
+    "socket.io": "^4.8.1",
+    "cors": "^2.8.5"
+  }
+}

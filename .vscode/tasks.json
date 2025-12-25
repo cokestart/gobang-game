@@ -1,0 +1,52 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "启动 React 开发服务器",
+      "type": "npm",
+      "script": "start",
+      "path": "frontend/",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "custom",
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Compiling...",
+          "endsPattern": "Compiled successfully!|Failed to compile."
+        }
+      }
+    },
+    {
+      "label": "启动后端服务器",
+      "type": "npm",
+      "script": "start",
+      "path": "backend/",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "custom",
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^",
+          "endsPattern": "服务器运行在端口"
+        }
+      }
+    },
+    {
+      "label": "构建前端",
+      "type": "npm",
+      "script": "build",
+      "path": "frontend/",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+.replay-controls {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.replay-controls.active {
+  background: #e8f4fd;
+  border-color: #b8daff;
+}
+
+.replay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.replay-header h5 {
+  margin: 0;
+  color: #495057;
+  font-weight: 600;
+}
+
+.replay-info {
+  text-align: center;
+  padding: 8px;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #e9ecef;
+}
+
+.replay-progress {
+  margin-bottom: 15px;
+}
+
+.replay-progress .progress {
+  height: 8px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.replay-progress .progress-bar {
+  background: linear-gradient(90deg, #4dabf7, #339af0);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #6c757d;
+}
+
+.replay-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.replay-buttons .btn {
+  min-width: 100px;
+  font-weight: 500;
+}
+
+.replay-speed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.replay-speed .btn-group {
+  margin-left: 10px;
+}
+
+.replay-steps {
+  margin-bottom: 15px;
+}
+
+.replay-steps small {
+  display: block;
+  margin-bottom: 8px;
+  color: #495057;
+  font-weight: 500;
+}
+
+.step-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+}
+
+.step-buttons .btn {
+  min-width: 40px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+}
+
+.replay-history {
+  margin-top: 15px;
+}
+
+.replay-history small {
+  display: block;
+  margin-bottom: 8px;
+  color: #495057;
+  font-weight: 500;
+}
+
+.history-list {
+  max-height: 150px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  border-bottom: 1px solid #f1f3f5;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 0.85rem;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-item:hover {
+  background-color: #f8f9fa;
+}
+
+.history-item.active {
+  background-color: #e7f5ff;
+  border-left: 3px solid #339af0;
+  font-weight: 500;
+}
+
+.history-item small {
+  color: #868e96;
+  font-size: 0.75rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .replay-controls {
+    padding: 12px;
+  }
+  
+  .replay-header h5 {
+    font-size: 1rem;
+  }
+  
+  .replay-buttons {
+    flex-wrap: wrap;
+  }
+  
+  .replay-buttons .btn {
+    min-width: 80px;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+  
+  .step-buttons .btn {
+    min-width: 35px;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+  }
+  
+  .history-item {
+    font-size: 0.8rem;
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .replay-controls {
+    padding: 10px;
+  }
+  
+  .replay-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+  
+  .replay-header h5 {
+    text-align: center;
+  }
+  
+  .replay-speed {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .replay-speed .btn-group {
+    margin-left: 0;
+  }
+  
+  .step-buttons {
+    gap: 3px;
+  }
+  
+  .step-buttons .btn {
+    min-width: 30px;
+    font-size: 0.7rem;
+    padding: 1px 4px;
+  }
+}

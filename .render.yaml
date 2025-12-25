@@ -1,0 +1,57 @@
+# Render 部署配置文件
+# 文档：https://render.com/docs/yaml-spec
+
+services:
+  # 五子棋游戏主服务
+  - type: web
+    name: gobang-game
+    env: node
+    region: singapore  # 新加坡，亚洲用户访问快
+    plan: free
+    
+    # 构建命令
+    buildCommand: |
+      echo "开始构建五子棋游戏..."
+      npm run render:install
+      npm run render:build
+      echo "构建完成！"
+    
+    # 启动命令
+    startCommand: npm run render:start
+    
+    # 健康检查路径
+    healthCheckPath: /health
+    
+    # 环境变量
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: HOST
+        value: 0.0.0.0
+    
+    # 自动缩放（免费套餐固定为1个实例）
+    autoDeploy: true
+    
+    # 磁盘配置
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
+
+# 清理策略
+cleanupPolicy:
+  # 构建缓存保留时间（小时）
+  buildCacheRetentionHours: 24
+  
+  # 部署保留数量
+  deployments:
+    maxPerService: 5
+    minAgeDays: 1
+
+# 部署通知（可选）
+# notifications:
+#   - type: slack
+#     channel: deployments
+#     events: [deployed, failed]

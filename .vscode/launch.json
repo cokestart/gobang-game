@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "启动后端服务器",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/backend/server.js",
+      "cwd": "${workspaceFolder}/backend",
+      "console": "integratedTerminal"
+    },
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "启动前端 (Chrome)",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}/frontend/src",
+      "preLaunchTask": "启动 React 开发服务器"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "启动完整应用 (前端+后端)",
+      "configurations": ["启动后端服务器", "启动前端 (Chrome)"],
+      "stopAll": true
+    }
+  ]
+}
